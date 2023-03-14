@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Calculator</title>
+    <script>
+    
+        class Calculator {
+            add(a, b) {
+                if (typeof a == "number" && typeof b == "number") {
+                    return a + b;
+                }
+            }
+        }
+
+        function calculateSum(){
+            var a = document.getElementById("input1").value;
+            var b = document.getElementById("input2").value;
+
+            var calc = new Calculator();
+            var sum;
+            if(!isNaN(a) && !isNaN(b)){
+                if(a.indexOf('.') != -1 || b.indexOf('.') != -1){
+                    sum = calc.add(parseFloat(a), parseFloat(b));
+                } else {
+                    sum = calc.add(parseInt(a), parseInt(b));
+                }
+            }
+
+            document.getElementById("result").innerHTML = sum;
+        }
+    </script>
+</head>
+<body>
+    <h2>Class Calculator</h2>
+    <input type="text" id="input1" /> +
+    <input type="text" id="input2" />
+    <input type="button" onclick="calculateSum()" value="Add" />
+    <span id="result"></span>
+</body>
+</html>
